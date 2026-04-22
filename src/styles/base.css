@@ -1,0 +1,12 @@
+:root {
+  --app-dark: #212529;
+  --app-muted: #6c757d;
+  --app-footer: #f8f9fa;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+  color: #212529;
+  background: #ffffff;
+}
