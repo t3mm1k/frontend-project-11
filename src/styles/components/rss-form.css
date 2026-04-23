@@ -4,9 +4,21 @@
 }
 
 .rss-input.error {
+  min-height: 58px;
   border-color: red;
 }
 
+.rss-label.error {
+  color: red;
+  display: inline;
+}
+.rss-label.hidden {
+  display: none;
+}
+.rss-input.success {
+  color: green;
+  display: inline;
+}
 .rss-submit {
   min-width: 190px;
   min-height: 58px;
