@@ -34,10 +34,16 @@ const createFormController = (view, state) => {
       url: state.form.currentValue,
       feeds: state.rssStore.feeds
     }).then((res) => {
-      return fetchRssFeed(res.url);
-    }).then((response) => {
+      return fetchRssFeed(res.url).then((response) => ({
+        response,
+        rssUrl: res.url,
+      }));
+    }).then(({ response, rssUrl }) => {
       const { posts, feed } = parseRssFeed(response.data.contents);
-      state.rssStore.feeds.push(feed);
+      state.rssStore.feeds.push({
+        ...feed,
+        rssUrl,
+      });
       state.rssStore.posts = state.rssStore.posts.concat(posts);
       state.form.status = 'success'
     }).catch((err) => {
