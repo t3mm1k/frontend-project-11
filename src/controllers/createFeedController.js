@@ -1,4 +1,6 @@
 import formSchema from '../utils/formSchema.js';
+import { fetchRssFeed } from '../api/client.js';
+import { parseRssFeed } from '../utils/parseRssFeed.js';
 
 const getValidationErrorKey = (error) => {
   const validationError = error.errors?.[0] ?? error.message;
@@ -18,10 +20,12 @@ const createFeedController = (view, state) => {
     state.form.error = null;
     formSchema.validate({
       url: state.form.currentValue,
-      feeds: state.form.feeds
+      feeds: [...state.rssStore.feeds, state.form.currentValue]
     }).then((res) => {
-      state.form.feeds.push(res.url)
-
+      state.form.rssStore.push(res.url)
+      return fetchRssFeed(res.url);
+    }).then((response) => {
+      parseRssFeed(response.data.contents);
     }).catch((err) => {
       state.form.error = getValidationErrorKey(err);
     })
