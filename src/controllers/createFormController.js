@@ -2,13 +2,25 @@ import formSchema from '../utils/formSchema.js';
 import { fetchRssFeed } from '../api/client.js';
 import { parseRssFeed } from '../utils/parseRssFeed.js';
 
-const getValidationErrorKey = (error) => {
-  const validationError = error.errors?.[0] ?? error.message;
+const getErrorKey = (error) => {
+  const validationError = error.errors?.[0];
 
-  return typeof validationError === 'string' ? validationError : validationError.key;
+  if (typeof validationError === 'string') {
+    return validationError;
+  }
+
+  if (validationError?.key) {
+    return validationError.key;
+  }
+
+  if (error.message?.key) {
+    return error.message.key;
+  }
+
+  return error.message ?? 'rss.invalid';
 };
 
-const createFeedController = (view, state) => {
+const createFormController = (view, state) => {
   view.onInput((newValue) => {
     state.form.currentValue = newValue;
     state.form.status = 'idle'
@@ -18,19 +30,22 @@ const createFeedController = (view, state) => {
     state.form.currentValue = newValue;
     state.form.status = 'submitted'
     state.form.error = null;
+    console.log([...state.rssStore.feeds, state.form.currentValue])
     formSchema.validate({
       url: state.form.currentValue,
-      feeds: [...state.rssStore.feeds, state.form.currentValue]
+      feeds: state.rssStore.feeds
     }).then((res) => {
-      state.form.rssStore.push(res.url)
+      console.log('push to feeds')
+      state.rssStore.feeds.push({link: res.url})
       return fetchRssFeed(res.url);
     }).then((response) => {
+      console.log('render')
       parseRssFeed(response.data.contents);
     }).catch((err) => {
-      state.form.error = getValidationErrorKey(err);
+      state.form.error = getErrorKey(err);
     })
   });
 
 }
 
-export { createFeedController };
+export { createFormController };
