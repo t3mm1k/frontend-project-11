@@ -1,5 +1,10 @@
 .rss-input {
   min-height: 58px;
+  border-color: #ffffff;
+}
+
+.rss-input.error {
+  border-color: red;
 }
 
 .rss-submit {
