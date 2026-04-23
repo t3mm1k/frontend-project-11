@@ -8,7 +8,7 @@ export const createFeedView = (container) => {
 
   const input = document.getElementById('rss-url');
   const form = document.querySelector('.rss-form');
-  const inputLabel = form.querySelector('.rss-label');
+  const feedbackLabel = form.querySelector('.rss-label');
   const postsContainer = document.querySelector('.rss-posts');
   const feedsContainer = document.querySelector('.rss-feeds');
 
@@ -23,23 +23,45 @@ export const createFeedView = (container) => {
       handle(input.value);
     })
   }
+
+  const renderIdleFeedback = () => {
+    feedbackLabel.classList.add('hidden');
+  }
+  const renderSendingFeedback = () => {
+    feedbackLabel.textContent = i18n.t("url.loading", {ns: "validation"})
+  }
+  const renderFailedFeedback = (message) => {
+    input.classList.add('error');
+    feedbackLabel.classList.add('error');
+    feedbackLabel.textContent = i18n.exists(message) ?
+      i18n.t(message) :
+      message;
+  }
+
+  const renderSuccessFeedback = () => {
+    feedbackLabel.classList.add('success')
+    feedbackLabel.textContent = i18n.t("url.success", {ns: "validation"})
+  }
+
   const renderForm = (state) => {
     input.classList.remove('error', 'success', 'hidden')
-    inputLabel.classList.remove('hidden', 'error', 'success');
+    feedbackLabel.classList.remove('hidden', 'error', 'success');
 
-    if (state.form.status === 'submitted') {
-      if (state.form.error) {
-        input.classList.add('error');
-        inputLabel.classList.add('error');
-        inputLabel.textContent = i18n.t(state.form.error, { ns: 'validation' });
-      } else {
-        inputLabel.classList.add('success');
-        inputLabel.textContent = i18n.t('url.success', { ns: 'validation' });
-      }
-    } else {
-      inputLabel.classList.add('hidden');
-      input.classList.remove('error');
+    switch (state.form.status) {
+      case 'idle':
+        renderIdleFeedback()
+        break;
+      case 'sending':
+        renderSendingFeedback()
+        break;
+      case "failed":
+        renderFailedFeedback(message)
+        break;
+      case 'success':
+        renderSuccessFeedback()
+        break;
     }
+
   }
   const renderPosts = (posts) => {
     postsContainer.innerHTML = posts.map((post) => renderRssPost(post)).join('\n');
