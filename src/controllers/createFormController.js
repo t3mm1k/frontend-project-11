@@ -30,17 +30,15 @@ const createFormController = (view, state) => {
     state.form.currentValue = newValue;
     state.form.status = 'submitted'
     state.form.error = null;
-    console.log([...state.rssStore.feeds, state.form.currentValue])
     formSchema.validate({
       url: state.form.currentValue,
       feeds: state.rssStore.feeds
     }).then((res) => {
-      console.log('push to feeds')
-      state.rssStore.feeds.push({link: res.url})
       return fetchRssFeed(res.url);
     }).then((response) => {
-      console.log('render')
-      parseRssFeed(response.data.contents);
+      const { posts, feed } = parseRssFeed(response.data.contents);
+      state.rssStore.feeds.push(feed);
+      state.rssStore.posts = state.rssStore.posts.concat(posts);
     }).catch((err) => {
       state.form.error = getErrorKey(err);
     })
