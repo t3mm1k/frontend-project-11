@@ -9,6 +9,10 @@
     "submit": "Добавить",
     "example": "Пример: https://lorem-rss.hexlet.app/feed\n\n"
   },
+  "main": {
+    "posts": "Посты",
+    "feeds": "Фиды"
+  },
   "footer": {
     "createdBy": "created by"
   }

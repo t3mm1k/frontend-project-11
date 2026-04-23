@@ -9,6 +9,10 @@
     "submit": "Add",
     "example": "Example: https://lorem-rss.hexlet.app/feed\n\n"
   },
+  "main": {
+    "posts": "Posts",
+    "feeds": "Feeds"
+  },
   "footer": {
     "createdBy": "created by"
   }

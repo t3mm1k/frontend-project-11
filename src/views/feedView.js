@@ -1,6 +1,7 @@
 import { renderPage } from './components/page.js';
 import { i18n } from '../locales/i18n.js'
 import { renderRssPost } from "./components/rssPost.js";
+import {renderFeed} from "./components/rssFeed.js";
 
 export const createFeedView = (container) => {
   container.innerHTML = renderPage(i18n.t);
@@ -9,6 +10,7 @@ export const createFeedView = (container) => {
   const form = document.querySelector('.rss-form');
   const inputLabel = form.querySelector('.rss-label');
   const postsContainer = document.querySelector('.rss-posts');
+  const feedsContainer = document.querySelector('.rss-feeds');
 
   const onInput = (handle) => {
     input.addEventListener('input', (e) => {
@@ -40,14 +42,16 @@ export const createFeedView = (container) => {
     }
   }
   const renderPosts = (posts) => {
-    console.log(postsContainer)
-    console.log(posts.map((post) => {renderRssPost(post)}).join('\n'))
     postsContainer.innerHTML = posts.map((post) => renderRssPost(post)).join('\n');
+  }
+  const renderFeeds = (feeds) => {
+    feedsContainer.innerHTML = feeds.map((feed) => renderFeed(feed)).join('\n');
   }
   return {
     onInput,
     onSubmit,
     renderForm,
-    renderPosts
+    renderPosts,
+    renderFeeds,
   }
 };

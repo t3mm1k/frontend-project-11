@@ -14,8 +14,9 @@ export const initApp = () => {
   subscribe(model, () => {
     view.renderForm(snapshot(model));
   });
-  subscribe(model, () => {
+  subscribe(model.rssStore, () => {
     view.renderPosts(snapshot(model).rssStore.posts);
+    view.renderFeeds(snapshot(model).rssStore.feeds);
   })
   subscribe(model, () => {console.log(snapshot(model));});
 };
