@@ -4,5 +4,8 @@
     "invalid": "URL must be valid",
     "duplicate": "RSS already exists",
     "success": "RSS loaded successfully"
+  },
+  "rss": {
+    "invalid": "The resource does not contain a valid RSS feed."
   }
 }
