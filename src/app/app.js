@@ -1,5 +1,5 @@
 import { createFeedView } from '../views/feedView.js';
-import { createFeedModel } from '../models/feedModel.js';
+import { createFeedModel } from '../models/FeedModel.js';
 import { subscribe, snapshot } from 'valtio/vanilla';
 import { createFeedController } from '../controllers/createFeedController.js';
 
