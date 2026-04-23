@@ -25,6 +25,7 @@ export const parseRssFeed = (rssText) => {
   const feed = {
     title: channel.querySelector('title')?.textContent,
     link: channel.querySelector('link')?.textContent,
+    description: channel.querySelector('description')?.textContent,
   };
 
   return {
