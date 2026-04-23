@@ -15,7 +15,7 @@
 .rss-label.hidden {
   display: none;
 }
-.rss-input.success {
+.rss-label.success {
   color: green;
   display: inline;
 }

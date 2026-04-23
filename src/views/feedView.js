@@ -16,7 +16,7 @@ export const createFeedView = (container) => {
   const onSubmit = (handle) => {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      handle(input);
+      handle(input.value);
     })
   }
   const renderForm = (state) => {
@@ -24,16 +24,15 @@ export const createFeedView = (container) => {
     inputLabel.classList.remove('hidden', 'error', 'success');
 
     if (state.form.status === 'submitted') {
-      if (state.error) {
-        inputLabel.classList.add('success');
-        inputLabel.textContent = 'RSS успешно загружен';
-      } else {
+      if (state.form.error) {
         input.classList.add('error');
         inputLabel.classList.add('error');
-        inputLabel.textContent = state.form.error;
+        inputLabel.textContent = i18n.t(state.form.error, { ns: 'validation' });
+      } else {
+        inputLabel.classList.add('success');
+        inputLabel.textContent = i18n.t('url.success', { ns: 'validation' });
       }
     } else {
-      console.log(state.form.status);
       inputLabel.classList.add('hidden');
       input.classList.remove('error');
     }

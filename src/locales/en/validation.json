@@ -2,6 +2,7 @@
   "url": {
     "required": "URL must not be empty",
     "invalid": "URL must be valid",
-    "duplicate": "RSS already exists"
+    "duplicate": "RSS already exists",
+    "success": "RSS loaded successfully"
   }
 }

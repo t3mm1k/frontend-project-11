@@ -1,11 +1,23 @@
 import * as yup from 'yup'
+import { setLocale } from "yup";
+
+setLocale({
+  string: {
+    url: { key: 'url.invalid' },
+    required: { key: 'url.required' },
+    min: ({ min }) => ({ key: "url.required", values: { min } })
+  },
+})
+
 let schema = yup.object().shape({
-  url: yup.string().url('invalid').required().min(1, 'required'),
-  feeds: yup.array().of(yup.string()).test(
+  url: yup.string().required().min(1).url().test(
     'is-unique',
-    'duplicate',
-    (value) => new Set(value).size === value.length
-  )
+    { key: 'url.duplicate' },
+    function isUnique(value) {
+      return !this.parent.feeds.includes(value);
+    }
+  ),
+  feeds: yup.array().of(yup.string())
 });
 
 export default schema

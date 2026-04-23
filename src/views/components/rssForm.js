@@ -8,7 +8,7 @@ export const renderRssForm = (t) => `
           id="rss-url"
           name="rss-url"
           type="text"
-          placeholder=${t('form.placeholder')}
+          placeholder="${t('form.placeholder')}"
         >
         <p class="form-text rss-example mb-0">${t('form.example')}</p>
         <p class="form-text rss-label mb-0"></p>
