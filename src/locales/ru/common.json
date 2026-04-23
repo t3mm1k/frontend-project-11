@@ -1,0 +1,15 @@
+{
+  "app": {
+    "title": "RSS агрегатор",
+    "description": "Начните читать RSS сегодня! Это легко и красиво"
+  },
+  "form": {
+    "label": "Ссылка RSS",
+    "placeholder": "Ссылка RSS",
+    "submit": "Добавить",
+    "example": "Пример: https://lorem-rss.hexlet.app/feed\n\n"
+  },
+  "footer": {
+    "createdBy": "created by"
+  }
+}

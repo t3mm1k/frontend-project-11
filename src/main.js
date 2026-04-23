@@ -1,4 +1,8 @@
 import './styles/main.css';
 import { initApp } from './app/app.js';
-
-initApp();
+import { initI18next } from './locales/i18n.js';
+initI18next().then((t) => {
+    console.log()
+    initApp()
+  }
+)

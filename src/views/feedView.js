@@ -1,7 +1,8 @@
 import { renderPage } from './components/page.js';
+import { i18n } from '../locales/i18n.js'
 
 export const createFeedView = (container) => {
-  container.innerHTML = renderPage();
+  container.innerHTML = renderPage(i18n.t);
 
   const input = document.getElementById('rss-url');
   const form = document.querySelector('.rss-form');

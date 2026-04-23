@@ -1,0 +1,15 @@
+{
+  "app": {
+    "title": "RSS agregator",
+    "description": "Start reading RSS today! It's easy, it's beautiful."
+  },
+  "form": {
+    "label": "RSS link",
+    "placeholder": "RSS link",
+    "submit": "Add",
+    "example": "Example: https://lorem-rss.hexlet.app/feed\n\n"
+  },
+  "footer": {
+    "createdBy": "created by"
+  }
+}
