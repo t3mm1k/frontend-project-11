@@ -28,7 +28,7 @@ const createFormController = (view, state) => {
   });
   view.onSubmit((newValue) => {
     state.form.currentValue = newValue;
-    state.form.status = 'submitted'
+    state.form.status = 'sending'
     state.form.error = null;
     formSchema.validate({
       url: state.form.currentValue,
@@ -39,7 +39,9 @@ const createFormController = (view, state) => {
       const { posts, feed } = parseRssFeed(response.data.contents);
       state.rssStore.feeds.push(feed);
       state.rssStore.posts = state.rssStore.posts.concat(posts);
+      state.form.status = 'success'
     }).catch((err) => {
+      state.form.status = 'failed'
       state.form.error = getErrorKey(err);
     })
   });

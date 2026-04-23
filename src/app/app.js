@@ -11,7 +11,7 @@ export const initApp = () => {
   createFormController(view, model);
 
 
-  subscribe(model, () => {
+  subscribe(model.form, () => {
     view.renderForm(snapshot(model));
   });
   subscribe(model.rssStore, () => {

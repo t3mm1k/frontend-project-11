@@ -10,14 +10,18 @@
 
 .rss-label.error {
   color: red;
+}
+
+.rss-label {
+  color: #6c757d;
   display: inline;
 }
+
 .rss-label.hidden {
   display: none;
 }
 .rss-label.success {
   color: green;
-  display: inline;
 }
 .rss-submit {
   min-width: 190px;

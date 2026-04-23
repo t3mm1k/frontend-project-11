@@ -3,7 +3,8 @@
     "required": "Ссылка не должна быть пустой",
     "invalid": "Ссылка должна быть валидным URL",
     "duplicate": "RSS уже существует",
-    "success": "RSS успешно загружен"
+    "success": "RSS успешно загружен",
+    "loading": "Загрузка..."
   },
   "rss": {
     "invalid": "The resource does not contain a valid RSS feed."

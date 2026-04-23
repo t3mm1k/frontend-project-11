@@ -3,7 +3,8 @@
     "required": "URL must not be empty",
     "invalid": "URL must be valid",
     "duplicate": "RSS already exists",
-    "success": "RSS loaded successfully"
+    "success": "RSS loaded successfully",
+    "loading": "Loading..."
   },
   "rss": {
     "invalid": "The resource does not contain a valid RSS feed."
