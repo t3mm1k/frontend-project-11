@@ -11,7 +11,8 @@ const createFeedModel = () => proxy({
     posts: []
   },
   ui: {
-    modalPostId: null
+    modalPostId: null,
+    viewedPosts: [],
   }
 });
 

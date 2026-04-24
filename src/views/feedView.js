@@ -86,8 +86,12 @@ export const createFeedView = (container) => {
         renderIdleFeedback();
     }
   };
-  const renderPosts = (posts) => {
-    postsContainer.innerHTML = posts.map((post) => renderRssPost(post, i18n.t)).join('\n');
+  const renderPosts = (model) => {
+    const posts = model.rssStore.posts;
+    postsContainer.innerHTML = posts.map((post) => {
+      const isViewed = model.ui.viewedPosts.includes(post.id);
+      return renderRssPost(post, i18n.t, isViewed);
+    }).join('\n');
   };
   const renderFeeds = (feeds) => {
     feedsContainer.innerHTML = feeds.map((feed) => renderFeed(feed)).join('\n');

@@ -18,13 +18,17 @@ export const initApp = () => {
   subscribe(model.form, () => {
     view.renderForm(snapshot(model));
   });
+
   subscribe(model.rssStore, () => {
-    view.renderPosts(snapshot(model).rssStore.posts);
+    view.renderPosts(snapshot(model));
     view.renderFeeds(snapshot(model).rssStore.feeds);
   });
+
   subscribe(model.ui, () => {
     view.renderModal(snapshot(model));
+    view.renderPosts(snapshot(model));
   });
+
   subscribe(model, () => {console.log(snapshot(model));});
 
 };
