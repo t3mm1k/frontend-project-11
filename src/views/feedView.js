@@ -50,19 +50,19 @@ export const createFeedView = (container) => {
     feedbackLabel.classList.add('hidden');
   };
   const renderSendingFeedback = () => {
-    feedbackLabel.textContent = i18n.t('url.loading', { ns: 'validation' });
+    feedbackLabel.textContent = i18n.t('url.loading', { ns: 'errors' });
   };
   const renderFailedFeedback = (message) => {
     input.classList.add('error');
     feedbackLabel.classList.add('error');
-    feedbackLabel.textContent = i18n.exists(message, { ns: 'validation' }) ?
-      i18n.t(message, { ns: 'validation' }) :
+    feedbackLabel.textContent = i18n.exists(message, { ns: 'errors' }) ?
+      i18n.t(message, { ns: 'errors' }) :
       message;
   };
 
   const renderSuccessFeedback = () => {
     feedbackLabel.classList.add('success');
-    feedbackLabel.textContent = i18n.t('url.success', { ns: 'validation' });
+    feedbackLabel.textContent = i18n.t('url.success', { ns: 'errors' });
   };
 
   const renderForm = (state) => {
