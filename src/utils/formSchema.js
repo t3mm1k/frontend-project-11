@@ -15,12 +15,11 @@ let schema = yup.object().shape({
     { key: 'url.duplicate' },
     function isUnique(value) {
       const feeds = this.parent.feeds;
-      const feedsLinks = feeds.map(feed => feed.link);
-      return !feedsLinks.includes(value);
+      const feedsUrls = feeds.map((feed) => feed.rssUrl);
+      return !feedsUrls.includes(value);
     }
   ),
   feeds: yup.array().of(yup.object())
 });
 
 export default schema
-
