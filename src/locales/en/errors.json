@@ -8,5 +8,8 @@
   },
   "rss": {
     "invalid": "The resource does not contain a valid RSS feed."
+  },
+  "network": {
+    "error": "Network error"
   }
 }
