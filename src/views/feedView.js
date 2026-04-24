@@ -12,7 +12,7 @@ export const createFeedView = (container) => {
   const feedbackLabel = form.querySelector('.rss-label');
   const postsContainer = document.querySelector('.rss-posts');
   const feedsContainer = document.querySelector('.rss-feeds');
-  const modalElement = document.getElementById('postModal');
+  const modalElement = document.getElementById('modal');
   const modalTitle = modalElement.querySelector('.modal-title');
   const modalDescription = modalElement.querySelector('.post-modal-description');
   const modalLink = modalElement.querySelector('.post-modal-link');

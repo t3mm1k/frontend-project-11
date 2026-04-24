@@ -1,8 +1,8 @@
 export const renderFeed = (feed) => {
   return `
-    <div class="rss-feed m-1" data-id=${feed.id}>
-      <a href="${feed.link}">${feed.title}</a>
+    <article class="rss-feed m-1" data-id="${feed.id}">
+      <h3 class="h5 mb-2">${feed.title}</h3>
       <p>${feed.description}</p>
-    </div>
-  `
-}
+    </article>
+  `;
+};

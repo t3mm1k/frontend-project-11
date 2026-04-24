@@ -12,7 +12,7 @@ export const renderRssForm = (t) => `
           placeholder="${t('form.placeholder')}"
         >
         <p class="form-text rss-example mb-0">${t('form.example')}</p>
-        <p class="form-text rss-label mb-0"></p>
+        <p class="form-text rss-label feedback mb-0"></p>
       </div>
       <div class="col-12 col-md-auto">
         <button class="btn btn-light btn-lg rss-submit hidden" type="submit" >${t('form.submit')}</button>
