@@ -1,5 +1,5 @@
 export const renderRssPost = (post, t, isViewed) => {
-  const postClass = isViewed ? 'fw-normal' : 'fw-bold';
+  const postClass = isViewed ? 'fw-normal link-secondary' : 'fw-bold';
 
   return `
     <li class="rss-post d-flex align-items-start justify-content-between gap-3" data-id="${post.id}">
