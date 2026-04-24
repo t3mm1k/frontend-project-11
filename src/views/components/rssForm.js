@@ -7,6 +7,7 @@ export const renderRssForm = (t) => `
           class="form-control form-control-lg rss-input"
           id="rss-url"
           name="rss-url"
+          aria-label="url"
           type="text"
           placeholder="${t('form.placeholder')}"
         >
