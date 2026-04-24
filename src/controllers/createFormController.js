@@ -1,24 +1,7 @@
 import formSchema from '../utils/formSchema.js';
 import { fetchRssFeed } from '../api/client.js';
 import { parseRssFeed } from '../utils/parseRssFeed.js';
-
-const getErrorKey = (error) => {
-  const validationError = error.errors?.[0];
-
-  if (typeof validationError === 'string') {
-    return validationError;
-  }
-
-  if (validationError?.key) {
-    return validationError.key;
-  }
-
-  if (error.message?.key) {
-    return error.message.key;
-  }
-
-  return error.message ?? 'rss.invalid';
-};
+import { getErrorKey } from '../utils/getErrorKey.js';
 
 const createFormController = (view, state) => {
   view.onInput((newValue) => {
