@@ -10,7 +10,6 @@ export const createFeedUpdateController = (model) => {
           const { posts } = parseRssFeed(response.data.contents)
           const existingPostsLinks = model.rssStore.posts.map(post => post.link)
           const newPosts = posts.filter(post => !existingPostsLinks.includes(post.link))
-          console.log(newPosts)
 
           model.rssStore.posts = model.rssStore.posts.concat(newPosts)
         }).catch(err => console.log(err));

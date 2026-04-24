@@ -18,8 +18,9 @@ export const parseRssFeed = (rssText) => {
   const posts = items.map((el) => {
     const title = el.querySelector('title')?.textContent;
     const link = el.querySelector('link')?.textContent;
+    const description = el.querySelector('description')?.textContent ?? '';
 
-    return { id: crypto.randomUUID(), title, link };
+    return { id: crypto.randomUUID(), title, link, description };
   });
 
   const feed = {

@@ -1,7 +1,7 @@
 {
   "app": {
     "title": "RSS агрегатор",
-    "description": "Начните читать RSS сегодня! Это легко и красиво"
+    "description": "Начните читать RSS сегодня! Это легко, это красиво."
   },
   "form": {
     "label": "Ссылка RSS",
@@ -12,6 +12,13 @@
   "main": {
     "posts": "Посты",
     "feeds": "Фиды"
+  },
+  "post": {
+    "preview": "Просмотр"
+  },
+  "modal": {
+    "close": "Закрыть",
+    "readFullArticle": "Читать полностью"
   },
   "footer": {
     "createdBy": "created by"

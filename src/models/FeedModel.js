@@ -9,6 +9,9 @@ const createFeedModel = () => proxy({
   rssStore: {
     feeds: [],
     posts: []
+  },
+  ui: {
+    modalPostId: null
   }
 });
 

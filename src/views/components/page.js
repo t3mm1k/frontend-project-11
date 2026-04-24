@@ -2,6 +2,7 @@ import { renderHero } from './hero.js';
 import { renderFooter } from './footer.js';
 import { renderPosts } from './posts.js';
 import { renderFeeds } from './feeds.js';
+import { renderPostModal } from './postModal.js';
 
 export const renderPage = (t) => `
   <div class="app-shell min-vh-100 d-flex flex-column">
@@ -20,6 +21,7 @@ export const renderPage = (t) => `
         </div>
       </section>
     </main>
+    ${renderPostModal(t)}
     ${renderFooter(t)}
   </div>
 `;

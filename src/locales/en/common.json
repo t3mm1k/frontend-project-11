@@ -13,6 +13,13 @@
     "posts": "Posts",
     "feeds": "Feeds"
   },
+  "post": {
+    "preview": "Preview"
+  },
+  "modal": {
+    "close": "Close",
+    "readFullArticle": "Read full article"
+  },
   "footer": {
     "createdBy": "created by"
   }
