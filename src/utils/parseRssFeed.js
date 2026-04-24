@@ -19,10 +19,11 @@ export const parseRssFeed = (rssText) => {
     const title = el.querySelector('title')?.textContent;
     const link = el.querySelector('link')?.textContent;
 
-    return { title, link };
+    return { id: crypto.randomUUID(), title, link };
   });
 
   const feed = {
+    id: crypto.randomUUID(),
     title: channel.querySelector('title')?.textContent,
     link: channel.querySelector('link')?.textContent,
     description: channel.querySelector('description')?.textContent,
