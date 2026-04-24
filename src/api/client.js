@@ -1,4 +1,4 @@
-import axios from 'axios';
+import axios from 'axios'
 
-export const fetchRssFeed = (url) =>
+export const fetchRssFeed = url =>
   axios.get(`https://allorigins.hexlet.app/get?disableCache=true&url=${encodeURIComponent(url)}`)

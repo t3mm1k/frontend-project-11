@@ -1,6 +1,6 @@
-import { renderRssForm } from './rssForm.js';
+import { renderRssForm } from './rssForm.js'
 
-export const renderHero = (t) => `
+export const renderHero = t => `
   <section class="hero-section">
     <div class="container-xl">
       <div class="row justify-content-center">
@@ -12,4 +12,4 @@ export const renderHero = (t) => `
       </div>
     </div>
   </section>
-`;
+`

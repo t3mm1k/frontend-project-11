@@ -1,4 +1,4 @@
-export const renderRssForm = (t) => `
+export const renderRssForm = t => `
   <form class="rss-form">
     <div class="row g-3 align-items-start">
       <div class="col-12 col-md" id="input-div">
@@ -19,4 +19,4 @@ export const renderRssForm = (t) => `
       </div>
     </div>
   </form>
-`;
+`

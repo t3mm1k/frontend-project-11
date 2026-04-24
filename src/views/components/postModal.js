@@ -1,4 +1,4 @@
-export const renderPostModal = (t) => `
+export const renderPostModal = t => `
   <div class="modal fade" id="modal" tabindex="-1" aria-labelledby="postModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-scrollable">
       <div class="modal-content">
@@ -16,4 +16,4 @@ export const renderPostModal = (t) => `
       </div>
     </div>
   </div>
-`;
+`

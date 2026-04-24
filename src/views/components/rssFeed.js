@@ -4,5 +4,5 @@ export const renderFeed = (feed) => {
       <h3 class="h5 mb-2">${feed.title}</h3>
       <p>${feed.description}</p>
     </article>
-  `;
-};
+  `
+}

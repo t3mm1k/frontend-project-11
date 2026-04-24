@@ -1,22 +1,22 @@
-import {fetchRssFeed} from "../api/client.js";
-import {parseRssFeed} from "../utils/parseRssFeed.js";
-import {getErrorKey} from "../utils/getErrorKey.js";
+import { fetchRssFeed } from '../api/client.js'
+import { parseRssFeed } from '../utils/parseRssFeed.js'
+import { getErrorKey } from '../utils/getErrorKey.js'
 
 export const createFeedUpdateController = (model) => {
   setInterval(
     () => {
-      const feeds = model.rssStore.feeds;
-      feeds.forEach(feed => {
-        fetchRssFeed(feed.rssUrl).then(response => {
+      const feeds = model.rssStore.feeds
+      feeds.forEach((feed) => {
+        fetchRssFeed(feed.rssUrl).then((response) => {
           const { posts } = parseRssFeed(response.data.contents)
           const existingPostsLinks = model.rssStore.posts.map(post => post.link)
           const newPosts = posts.filter(post => !existingPostsLinks.includes(post.link))
           model.rssStore.posts = model.rssStore.posts.concat(newPosts)
-        }).catch(err => {
-          model.form.status = 'failed';
+        }).catch((err) => {
+          model.form.status = 'failed'
           model.form.error = getErrorKey(err)
-        });
+        })
       })
-    }, 5000
+    }, 5000,
   )
 }

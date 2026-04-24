@@ -4,16 +4,16 @@ const createFeedModel = () => proxy({
   form: {
     currentValue: '',
     error: null,
-    status: 'idle'
+    status: 'idle',
   },
   rssStore: {
     feeds: [],
-    posts: []
+    posts: [],
   },
   ui: {
     modalPostId: null,
     viewedPosts: [],
-  }
-});
+  },
+})
 
-export { createFeedModel };
+export { createFeedModel }

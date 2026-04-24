@@ -5,4 +5,4 @@ export const renderFooter = () => `
       <a href="https://hexlet.io/" target="_blank" rel="noreferrer">Hexlet</a>
     </div>
   </footer>
-`;
+`
